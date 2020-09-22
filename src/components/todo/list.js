@@ -1,6 +1,8 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 
+import './todo.scss';
+
 
   function TodoList(props) {
     return (
@@ -12,6 +14,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
           >
             <span onClick={() => props.handleComplete(item._id)}>
               {item.text}
+              <br></br>
+              {item.assignee}
             </span>
           </ListGroup.Item>
         ))}
