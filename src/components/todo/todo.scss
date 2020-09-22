@@ -30,6 +30,7 @@ body, html {
     flex-direction:row;
     justify-content: flex-start;
     margin: 2em;
+ 
 
     form {
 
@@ -44,12 +45,12 @@ body, html {
         }
     }
 
-    ul {
+    .list-group {
         list-style-type:none;
         margin:0;
         padding:0;
 
-        li {
+        .list-group-item {
 
             align-items: center;
             display:flex;
@@ -59,13 +60,25 @@ body, html {
 
             &.complete-true {
               span {
-                background: pink;
+                background: antiquewhite;
                 text-decoration:line-through;
                 &:hover {
-                   background: seagreen;
+                   background: rgb(55, 99, 74);
                 }
               }
             }
+
+            &.complete-false {
+                span {
+                  background: darkgoldenrod;
+                  color: antiquewhite;
+                  font-weight: bold;
+                  &:hover {
+                     background: rgb(91, 160, 121);
+                  }
+                }
+              }
+  
 
             span {
                 background: #e0e0e0;

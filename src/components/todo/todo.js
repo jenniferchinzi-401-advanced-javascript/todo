@@ -45,6 +45,10 @@ function ToDo() {
     setList(updatedList);
   }, []);
 
+  useEffect(() => {
+    document.title = `To Do List: ${list.length}`
+  }, [list]);
+
   return (
     <Container>
       <Row>

@@ -5,24 +5,15 @@ function TodoForm(props) {
 
   const [item, setItem] = useState({});
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { item: {} };
-  // }
-
   const handleInputChange = e => {
     setItem({...item, [e.target.name]: e.target.value});
-    // this.setState({ item: {...this.state.item, [e.target.name]: e.target.value } });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
     props.handleSubmit(item);
-    // this.props.handleSubmit(this.state.item);
-    // const item = {};
     setItem({});
-    // this.setState({item});
   };
 
     return (
