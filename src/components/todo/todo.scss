@@ -58,35 +58,35 @@ body, html {
             font-size: .75em;
             margin: .75em .5em;
 
-            &.complete-true {
-              span {
-                background: antiquewhite;
-                text-decoration:line-through;
-                &:hover {
-                   background: rgb(55, 99, 74);
-                }
-              }
-            }
+            // &.complete-true {
+            //   span {
+            //     background: pink;
+            //     color: darkred;
+            //     font-weight: bold;
+            //     &:hover {
+            //        background: grey;
+            //     }
+            //   }
+            // }
 
-            &.complete-false {
-                span {
-                  background: darkgoldenrod;
-                  color: antiquewhite;
-                  font-weight: bold;
-                  &:hover {
-                     background: rgb(91, 160, 121);
-                  }
-                }
-              }
+            // &.complete-false {
+            //     span {
+            //       background: lightgreen;
+            //       color: darkgreen;
+            //       &:hover {
+            //          background: rgb(91, 160, 121);
+            //       }
+            //     }
+            //   }
   
 
-            span {
-                background: #e0e0e0;
-                cursor:pointer;
-                &:hover {
-                    background: pink;
-                }
-            }
+            // span {
+            //     background: #e0e0e0;
+            //     cursor:pointer;
+            //     &:hover {
+            //         background: pink;
+            //     }
+            // }
              span, input {
                  border: .5px solid #eee;
                  display:inline-block;

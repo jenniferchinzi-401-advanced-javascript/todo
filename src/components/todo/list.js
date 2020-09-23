@@ -9,6 +9,7 @@ import './todo.scss';
       <ListGroup>
         {props.list.map(item => (
           <ListGroup.Item
+            action variant={item.complete === false ? "success" : "danger"}
             className={`complete-${item.complete.toString()}`}
             key={item._id}
           >
@@ -17,6 +18,7 @@ import './todo.scss';
               <br></br>
               {item.assignee}
             </span>
+            <button onClick={props.handleDelete(item._id)}>Delete</button>
           </ListGroup.Item>
         ))}
       </ListGroup>
