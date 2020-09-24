@@ -53,45 +53,14 @@ function ToDo() {
   }, []);
 
 // Ajax Hook Calls================================================
-const{ getStoredTasks } = useAjax(setList, 'http://localhost:3001/api/v1/todos', 'get');
+  const{ getStoredTasks } = useAjax(setList, 'http://localhost:3001/api/v1/todos', 'get');
 
-const { addNewTask } = useAjax(item, 'http://localhost:3001/api/v1/todos','post');
+  const { addNewTask } = useAjax(item, 'http://localhost:3001/api/v1/todos','post');
 
-// TODO: Why does put work but patch does not, even though it seems more appropriate for this case? Also, it never takes on the first try, but does work every time after...
-const { dbToggleStatus } = useAjax(item, 'http://localhost:3001/api/v1/todos/', 'put');
+  // TODO: Why does put work but patch does not, even though it seems more appropriate for this case? Also, it never takes on the first try, but does work every time after...
+  const { dbToggleStatus } = useAjax(item, 'http://localhost:3001/api/v1/todos/', 'put');
 
-const { deleteTask } = useAjax(id, 'http://localhost:3001/api/v1/todos/', 'delete');
-
-// Axios Functions=================================================
-
-  // async function getStoredTasks(){
-  //   const response = await axios.get('http://localhost:3001/api/v1/todos'); 
-  //   setList(response.data);
-  // }
-
-  // async function addNewTask(item){
-  //   console.log('Item:', item);
-  //   await axios.post('http://localhost:3001/api/v1/todos', {
-  //     text: item.text,
-  //     assignee: item.assignee,
-  //     complete: item.complete,
-  //     difficulty: item.difficulty,
-  //   });
-  // }
-
-  // async function dbToggleStatus(id, status){
-  //   await axios.put(`http://localhost:3001/api/v1/todos/${id}`, {complete: status});
-  // }
-
-  // async function deleteTask(id){
-  //   await axios.delete(`http://localhost:3001/api/v1/todos/${id}`);
-  // }
-
-  // Class Version
-  // async componentDidMount(){
-  //   const response = await axios.get('http://localhost:3000/api/v1/todos');
-  //   this.setState({list: response.data.results});
-  // };
+  const { deleteTask } = useAjax(id, 'http://localhost:3001/api/v1/todos/', 'delete');
 
   useEffect(() => {
     document.title = `To Do List: ${list.filter(item => !item.complete).length}`
