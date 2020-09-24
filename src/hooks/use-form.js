@@ -1,33 +1,25 @@
-// TODO: Figure out why these functions seem to be triggering at the wrong times...and make them do what they ought to do.
-
 import { useState } from 'react';
 
 const useForm = (callback) => {
 
-  const [values, setValues] = useState()
-
-  const handleInputChange = (event) => {
-    console.log('InputChange Event:', event);
-    event.preventDefault();
-    setValues(values => ({...values, [event.target.name] : event.target.value }));
-    console.log('Values in Input Change:', values);
-  }
+  const [values, setValues] = useState({});
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Submitted Event:', event.target);
-    // event.target.reset();
+    if(event) event.preventDefault();
+    event.target.reset();
     callback(values);
-    console.log('Values in Handle Submit:', values);
     setValues({});
   }
 
+  const handleInputChange = (event) => {
+    event.persist();
+    setValues(values => ({...values, [event.target.name] : event.target.value }));
+  }
 
-  
+  // Note to self - Order of Return must match Order of the const declaration in form.js (line 9) if we're using an array
   return [
     handleSubmit,
     handleInputChange,
-    values,
   ];
   
 }

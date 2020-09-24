@@ -18,7 +18,8 @@ import './todo.scss';
               <br></br>
               {item.assignee}
             </span>
-            <button onClick={props.handleDelete(item._id)}>Delete</button>
+            {/* Error: <button> cannot appear as a descendant of <button> */}
+            <button onClick={() => {props.handleDelete(item._id)}}>Delete</button>
           </ListGroup.Item>
         ))}
       </ListGroup>
