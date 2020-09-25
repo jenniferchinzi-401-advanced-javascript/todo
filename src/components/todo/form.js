@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card'
 
 import useForm from '../../hooks/use-form.js'
+import Auth from '../auth/auth';
 
 function TodoForm(props) {
 
@@ -14,6 +15,7 @@ function TodoForm(props) {
 
     return (
       <Card>
+        <Auth capability="create">
         <Card.Body>
           <h3>Add Item</h3>
           <form onSubmit={handleSubmit}>
@@ -36,6 +38,7 @@ function TodoForm(props) {
             <button>Add Item</button>
           </form>
         </Card.Body>
+        </Auth>
       </Card>
     );
   }
