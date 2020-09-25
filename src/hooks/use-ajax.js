@@ -4,7 +4,8 @@ const useAjax = (body, url, method) => {
 
   async function getStoredTasks(){
     const response = await axios[method](url); 
-    body(response.data);
+    console.log('Response', response);
+    body(response.data.results);
   }
 
   async function addNewTask(body){

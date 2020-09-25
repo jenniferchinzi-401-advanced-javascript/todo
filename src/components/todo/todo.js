@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Auth from '../auth/auth.js';
+import Login from '../auth/login.js';
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -53,14 +55,14 @@ function ToDo() {
   }, []);
 
 // Ajax Hook Calls================================================
-  const{ getStoredTasks } = useAjax(setList, 'http://localhost:3001/api/v1/todos', 'get');
+  const{ getStoredTasks } = useAjax(setList, `${process.env.REACT_APP_API}/api/v1/todo`, 'get');
 
-  const { addNewTask } = useAjax(item, 'http://localhost:3001/api/v1/todos','post');
+  const { addNewTask } = useAjax(item, `${process.env.REACT_APP_API}/api/v1/todo`,'post');
 
   // TODO: Why does put work but patch does not, even though it seems more appropriate for this case? Also, it never takes on the first try, but does work every time after...
-  const { dbToggleStatus } = useAjax(item, 'http://localhost:3001/api/v1/todos/', 'put');
+  const { dbToggleStatus } = useAjax(item, `${process.env.REACT_APP_API}/api/v1/todo/`, 'put');
 
-  const { deleteTask } = useAjax(id, 'http://localhost:3001/api/v1/todos/', 'delete');
+  const { deleteTask } = useAjax(id, `${process.env.REACT_APP_API}/api/v1/todo/`, 'delete');
 
   useEffect(() => {
     document.title = `To Do List: ${list.filter(item => !item.complete).length}`
@@ -74,6 +76,7 @@ function ToDo() {
               <Navbar bg="dark" variant="dark">
                 <Nav>
                   <Navbar.Brand>
+                  {console.log('List Here', list)}
                   ToDo List Manager ({list.filter(item => !item.complete).length})
                   </Navbar.Brand>
                 </Nav>
